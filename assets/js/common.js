@@ -740,16 +740,26 @@ function initCtaVideo() {
 
 	const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	if (prefersReducedMotion) return;
+
 	let isInView = false;
+	let isLoaded = false; // ← 追加
 
 	const playVideo = () => {
 		if (document.hidden) return;
+
+		// 未ロードなら source をセットして load() してから play
+		if (!isLoaded) {
+			const source = ctaVideo.querySelector('source');
+			source.src = source.dataset.src; // ← data-src から src にセット
+			ctaVideo.load();
+			isLoaded = true;
+		}
+
 		ctaVideo.play().catch(() => { });
 	};
 
 	const ctaObserver = new IntersectionObserver(([entry]) => {
 		isInView = entry.isIntersecting;
-
 		if (isInView) {
 			playVideo();
 		} else {
