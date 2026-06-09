@@ -994,7 +994,7 @@ li[data-type="control_button"] button.jf-form-buttons.form-submit-button-blue-40
 :::::::::::::::::::::::::::::::::::::: */
 @media (max-width: 500px) {
   .hero {
-    background: url("../img/bg_hero.webp") center / cover no-repeat;
+    background: url("../img/bg_hero-sp.webp") center / cover no-repeat;
   }
   .hero__video {
     display: none;
