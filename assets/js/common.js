@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		initTabs();
 		initCounter();
 		initCtaVideo();
+		initFloatCta()
 	}, 200);
 
 	runLater(() => {
@@ -776,4 +777,30 @@ function initCtaVideo() {
 			playVideo();
 		}
 	});
+}
+
+
+// フロートCTAボタン ::::::::::::::::::::::::::::::::::::::
+function initFloatCta() {
+	const floatCta = document.getElementById('floatCta');
+	const hero = document.querySelector('.hero');
+	const mainCta = document.querySelector('.main-cta');
+	if (!floatCta || !hero) return;
+
+	// heroを抜けたら表示、main-ctaに入ったら非表示
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.target === hero) {
+				const past = !entry.isIntersecting;
+				floatCta.classList.toggle('is-visible', past);
+				floatCta.setAttribute('aria-hidden', String(!past));
+			}
+			if (entry.target === mainCta) {
+				floatCta.classList.toggle('is-hidden', entry.isIntersecting);
+			}
+		});
+	}, { threshold: 0.2 });
+
+	observer.observe(hero);
+	if (mainCta) observer.observe(mainCta);
 }
