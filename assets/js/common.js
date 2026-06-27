@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		initMarquee();
 		initTableHover();
 		initScrollHint();
-		initDragScroll();
 		initModal();
 		initTableToggle();
 	}, 600);
@@ -308,50 +307,18 @@ function initTabs() {
 	const contents = document.querySelectorAll('.js-tab-content');
 	if (!tabs.length || !contents.length) return;
 
-	const activateTab = (btn, shouldFocus = false) => {
-		const target = document.getElementById(btn.dataset.target);
-		if (!target) return;
+	tabs.forEach(btn => {
+		btn.addEventListener('click', () => {
+			tabs.forEach(tab => {
+				const isCurrent = tab === btn;
+				tab.classList.toggle('is-active', isCurrent);
+				tab.setAttribute('aria-selected', String(isCurrent));
+			});
 
-		tabs.forEach(tab => {
-			const isCurrent = tab === btn;
-			tab.classList.toggle('is-active', isCurrent);
-			tab.setAttribute('aria-selected', String(isCurrent));
-			tab.setAttribute('tabindex', isCurrent ? '0' : '-1');
+			contents.forEach(content => {
+				content.classList.toggle('is-active', content.id === btn.dataset.target);
+			});
 		});
-
-		contents.forEach(content => {
-			const isCurrent = content === target;
-			content.classList.toggle('is-active', isCurrent);
-			content.toggleAttribute('hidden', !isCurrent);
-		});
-
-		if (shouldFocus) btn.focus();
-	};
-
-	tabs.forEach((btn, index) => {
-		btn.setAttribute('tabindex', btn.classList.contains('is-active') ? '0' : '-1');
-
-		btn.addEventListener('click', () => activateTab(btn));
-
-		btn.addEventListener('keydown', e => {
-			const keyMap = {
-				ArrowRight: (index + 1) % tabs.length,
-				ArrowDown: (index + 1) % tabs.length,
-				ArrowLeft: (index - 1 + tabs.length) % tabs.length,
-				ArrowUp: (index - 1 + tabs.length) % tabs.length,
-				Home: 0,
-				End: tabs.length - 1
-			};
-
-			if (!(e.key in keyMap)) return;
-
-			e.preventDefault();
-			activateTab(tabs[keyMap[e.key]], true);
-		});
-	});
-
-	contents.forEach(content => {
-		content.toggleAttribute('hidden', !content.classList.contains('is-active'));
 	});
 }
 
@@ -542,41 +509,6 @@ function initScrollHint() {
 	observer.observe(target);
 }
 
-// 表のドラッグスクロール ::::::::::::::::::::::::::::::::::::::
-function initDragScroll() {
-	const dragScrollEl = document.querySelector('.js-drag-scroll');
-	if (!dragScrollEl) return;
-
-	let isDown = false;
-	let startX = 0;
-	let scrollLeft = 0;
-
-	const endDrag = () => {
-		isDown = false;
-		dragScrollEl.classList.remove('is-dragging');
-	};
-
-	dragScrollEl.addEventListener('pointerdown', (e) => {
-		if (e.pointerType === 'mouse' && e.button !== 0) return;
-
-		isDown = true;
-		startX = e.clientX;
-		scrollLeft = dragScrollEl.scrollLeft;
-		dragScrollEl.classList.add('is-dragging');
-		dragScrollEl.setPointerCapture(e.pointerId);
-	});
-
-	dragScrollEl.addEventListener('pointermove', (e) => {
-		if (!isDown) return;
-
-		e.preventDefault();
-		dragScrollEl.scrollLeft = scrollLeft - (e.clientX - startX);
-	});
-
-	dragScrollEl.addEventListener('pointerup', endDrag);
-	dragScrollEl.addEventListener('pointercancel', endDrag);
-	dragScrollEl.addEventListener('lostpointercapture', endDrag);
-}
 
 // モーダルウィンドウ ::::::::::::::::::::::::::::::::::::::
 function initModal() {
