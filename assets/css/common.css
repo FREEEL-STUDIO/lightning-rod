@@ -34,7 +34,6 @@
   --section-width: 1280px;
   --section-width-wide: 1600px;
   --section-width-narrow: 880px;
-  --size-unit: 100px;
   --c-button-width: min(90%, 380px);
 
   --color-main: #0c3675;
@@ -74,6 +73,7 @@
   --fs-lg: var(--fs-80);
   --fs-xlg: var(--fs-130);
 
+  --lh-none: 1;
   --lh-sm: 1.4;
   --lh-base: 2;
 
@@ -93,7 +93,7 @@
   --spacing-100: clamp(3.125rem, 1.122rem + 6.41vw, 6.25rem);
   --spacing-120: clamp(4rem, 1.756rem + 7.18vw, 7.5rem);
   --spacing-130: clamp(4rem, 1.356rem + 8.46vw, 8.125rem);
-  --spacing-150: clamp(6.25rem, 4.247rem + 6.41vw, 9.375rem);
+  --spacing-150: clamp(4.5rem, 1.375rem + 10vw, 9.375rem);
   --space-xs: var(--spacing-10);
   --space-sm: var(--spacing-20);
   --space-md: var(--spacing-60);
@@ -173,26 +173,22 @@
   text-decoration: none;
   transition: opacity var(--transition-normal);
 }
+:where(button, input, textarea, select, option) {
+  font: inherit;
+}
 @media (any-hover: hover) {
-  a:hover,
-  button:hover {
-    text-decoration: none;
+  :where(a, button):hover {
     opacity: var(--opacity-hover);
-    transition: opacity var(--transition-normal);
   }
 }
-:where(a:active, button:active) {
+:where(a, button):active {
   opacity: var(--opacity-active);
 }
-:where(a:focus) {
-  outline: none;
-}
-:where(a:focus-visible) {
+:where(a, button):focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
 :where(input[type="submit"], input[type="button"], button) {
-  outline: none;
   padding: 0;
   border: none;
   background-color: transparent;
@@ -305,8 +301,6 @@ lite-youtube .lty-playbtn {
   slider-controls 共通
 :::::::::::::::::::::::::::::::::::::: */
 .c-slider-controls {
-  --slider-scrollbar-width: 240px;
-  --slider-thumb-width: 40px;
   margin-block-start: var(--spacing-50);
   gap: var(--space-sm);
   align-items: center;
@@ -320,20 +314,20 @@ lite-youtube .lty-playbtn {
 .c-slider-scrollbar {
   position: relative;
   height: 4px;
-  width: var(--slider-scrollbar-width);
+  width: 240px;
   background-color: rgb(var(--color-translucent) / 0.2);
   border-radius: var(--radius-sm);
 }
 .c-slider-scrollbar-thumb {
   height: 100%;
-  width: var(--slider-thumb-width);
+  width: 40px;
   background-color: var(--color-white);
   border-radius: var(--radius-sm);
 }
 /*
    heading
 :::::::::::::::::::::::::::::::::::::: */
-.c-heading-lv1 {
+.c-heading-section {
   display: flex;
   align-items: center;
   font-size: var(--fs-xlg);
@@ -341,12 +335,11 @@ lite-youtube .lty-playbtn {
   white-space: nowrap;
   color: var(--color-main);
 }
-.c-heading-lv1 .js-letter {
+.c-heading-section .js-letter {
   display: inline-block;
 }
-.c-heading-lv1__sub {
-  --heading-sub-line-left: 1.8vw;
-  --heading-sub-line-width: 1.5px;
+.c-heading-section__sub {
+  --heading-divider-thickness: 1.5px;
   --heading-sub-line-height: 80%;
   position: relative;
   padding-inline-start: calc(var(--global-gap) * 3);
@@ -355,34 +348,25 @@ lite-youtube .lty-playbtn {
   white-space: wrap;
   color: var(--color-gray);
 }
-.c-heading-lv1__sub::before {
+.c-heading-section__sub::before {
   content: "";
   position: absolute;
   top: 50%;
-  left: var(--heading-sub-line-left);
+  left: 1.8vw;
   transform: translateY(-50%);
-  width: var(--heading-sub-line-width);
+  width: var(--heading-divider-thickness);
   height: var(--heading-sub-line-height);
   background-color: var(--color-gray);
 }
-.c-heading-lv2 {
+.c-heading-lg {
   font-size: var(--fs-slg);
   font-weight: 500;
   line-height: calc(var(--lh-base) * 0.9);
   color: var(--color-main);
 }
-.c-heading-lv3 {
+.c-heading-md {
   font-size: var(--fs-md);
   font-weight: 500;
-}
-/* vertical text
-:::::::::::::::::::::::::::::::::::::: */
-.c-vertical {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  line-height: calc(var(--lh-base) * 0.75);
-  letter-spacing: 0.05em;
-  white-space: nowrap;
 }
 /*
    button & link
@@ -464,6 +448,18 @@ lite-youtube .lty-playbtn {
 .c-page-top a:hover {
   opacity: 1;
 }
+.c-back-link {
+  display: inline-block;
+  margin-block-start: var(--space-sm);
+  font-weight: 500;
+  line-height: var(--lh-sm);
+  color: var(--color-main);
+}
+.c-back-link::before {
+  content: "▲";
+  display: block;
+  margin-inline: auto;
+}
 /*
    list
 :::::::::::::::::::::::::::::::::::::: */
@@ -472,11 +468,11 @@ lite-youtube .lty-playbtn {
   counter-reset: num;
   margin-block-start: var(--spacing-5);
 }
-.c-ol-list li {
+.c-ol-list > li {
   counter-increment: num;
   padding-inline-start: calc(var(--c-num-size));
 }
-.c-ol-list li::before,
+.c-ol-list > li::before,
 .c-num-ref {
   content: counter(num);
   display: inline-flex;
@@ -507,10 +503,13 @@ lite-youtube .lty-playbtn {
 .c-tooltip::after {
   content: attr(data-tooltip);
   position: absolute;
+  white-space: nowrap;
   opacity: 0;
   transition: opacity var(--transition-normal);
+  pointer-events: none;
 }
-.c-tooltip:hover::after {
+.c-tooltip:hover::after,
+.c-tooltip:focus-visible::after {
   opacity: 1;
 }
 .c-round-box {
@@ -631,7 +630,7 @@ lite-youtube .lty-playbtn {
   padding-inline: var(--space-md) calc(var(--space-md) + var(--scrollbar-size));
   max-width: 90%;
   max-height: 90dvh;
-  min-height: calc(var(--size-unit) * 5);
+  min-height: 500px;
   overflow-y: auto;
 }
 .c-modal__content::-webkit-scrollbar {
@@ -775,36 +774,28 @@ lite-youtube .lty-playbtn {
 .l-flex {
   display: flex;
 }
-.l-flex-between {
-  display: flex;
+.l-flex--between {
   justify-content: space-between;
 }
-.l-flex-around {
-  display: flex;
+.l-flex--around {
   justify-content: space-around;
 }
-.l-flex-evenly {
-  display: flex;
+.l-flex--evenly {
   justify-content: space-evenly;
 }
-.l-flex-center {
-  display: flex;
+.l-flex--center {
   justify-content: center;
 }
-.l-flex-inline {
-  display: inline-flex;
-}
-.l-flex-end {
-  display: flex;
+.l-flex--end {
   justify-content: flex-end;
 }
-.l-flex-al-start {
+.l-flex--align-start {
   align-items: flex-start;
 }
-.l-flex-al-center {
+.l-flex--align-center {
   align-items: center;
 }
-.l-flex-al-sl-center {
+.l-self--center {
   align-self: center;
 }
 /*
@@ -813,63 +804,24 @@ lite-youtube .lty-playbtn {
 /*
   grid place
 -------------------------------------- */
-.l-grid-center {
+.l-grid {
   display: grid;
+}
+.l-grid--center {
   place-items: center;
-}
-.l-grid-x-center {
-  display: grid;
-  justify-items: center;
-}
-.l-grid-y-center {
-  display: grid;
-  align-items: center;
-}
-.l-grid-tl {
-  display: grid;
-  place-items: start start;
-}
-.l-grid-tr {
-  display: grid;
-  place-items: start end;
-}
-.l-grid-bl {
-  display: grid;
-  place-items: end start;
-}
-.l-grid-br {
-  display: grid;
-  place-items: end end;
 }
 /*
   grid columns
 -------------------------------------- */
-.l-grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.l-grid--cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.l-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-.l-grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.l-grid--cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 /*
    position
 :::::::::::::::::::::::::::::::::::::: */
-.l-abs-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.l-abs-x-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
 .l-abs-full {
   position: absolute;
   inset: 0;
@@ -882,6 +834,9 @@ lite-youtube .lty-playbtn {
 }
 .l-align-l {
   text-align: left;
+}
+.l-align-r {
+  text-align: right;
 }
 .l-align-j {
   text-align: justify;
@@ -918,13 +873,13 @@ lite-youtube .lty-playbtn {
     800px ～
 :::::::::::::::::::::::::::::::::::::: */
 @media (max-width: 800px) {
-  :is(.c-heading-lv1, .c-heading-lv1__main, .c-heading-lv1__sub) {
+  :is(.c-heading-section, .c-heading-section__main, .c-heading-section__sub) {
     display: block;
   }
-  .c-heading-lv1__sub::before {
+  .c-heading-section__sub::before {
+    --heading-sub-line-height: var(--heading-divider-thickness);
     left: 0;
     width: clamp(0.8rem, 0.582rem + 0.73vw, 1.2rem);
-    height: var(--heading-sub-line-width);
   }
   .c-button-cta__text > span {
     display: block;

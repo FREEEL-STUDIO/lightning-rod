@@ -1,6 +1,12 @@
 // gsap共通 ::::::::::::::::::::::::::::::::::::::
-if (window.gsap && window.ScrollTrigger && window.Draggable) {
-	gsap.registerPlugin(ScrollTrigger, Draggable);
+if (window.gsap) {
+	if (window.ScrollTrigger) {
+		gsap.registerPlugin(ScrollTrigger);
+	}
+
+	if (window.Draggable) {
+		gsap.registerPlugin(Draggable);
+	}
 }
 
 const runLater = (callback, timeout = 1) => {
@@ -13,25 +19,28 @@ const runLater = (callback, timeout = 1) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+	// 操作に関わるもの
 	initHero();
 	initHamburger();
+	initTabs();
+	initModal();
+	initTableToggle();
+	initFloatCta();
 
+	// 表示アニメーション
 	runLater(() => {
 		initFadeUp();
 		initHeadingAnimation();
 		initOverviewGallery();
-		initTabs();
 		initCounter();
 		initCtaVideo();
-		initFloatCta()
 	}, 200);
 
+	// 比較的重い処理
 	runLater(() => {
 		initMarquee();
 		initTableHover();
 		initScrollHint();
-		initModal();
-		initTableToggle();
 	}, 600);
 });
 
@@ -126,12 +135,12 @@ function initFadeUp() {
 function initHeadingAnimation() {
 	if (!window.gsap || !window.ScrollTrigger) return;
 
-	const headings = document.querySelectorAll('.c-heading-lv1');
+	const headings = document.querySelectorAll('.c-heading-section');
 	if (!headings.length) return;
 
 	const showHeading = (heading) => {
-		const mainEl = heading.querySelector('.c-heading-lv1__main');
-		const subEl = heading.querySelector('.c-heading-lv1__sub');
+		const mainEl = heading.querySelector('.c-heading-section__main');
+		const subEl = heading.querySelector('.c-heading-section__sub');
 		if (!mainEl) return;
 
 		gsap.set(mainEl, { opacity: 1, x: 0 });
@@ -142,8 +151,8 @@ function initHeadingAnimation() {
 	ScrollTrigger.matchMedia({
 		'(min-width: 901px)': () => {
 			headings.forEach(heading => {
-				const mainEl = heading.querySelector('.c-heading-lv1__main');
-				const subEl = heading.querySelector('.c-heading-lv1__sub');
+				const mainEl = heading.querySelector('.c-heading-section__main');
+				const subEl = heading.querySelector('.c-heading-section__sub');
 				if (!mainEl) return;
 
 				if (!mainEl.classList.contains('is-splitted')) {
@@ -339,7 +348,17 @@ function initMarquee() {
 	if (!slides.length) return;
 
 	slides.slice(0, 4).forEach(slide => {
-		wrapper.appendChild(slide.cloneNode(true));
+		const clone = slide.cloneNode(true);
+
+		clone.setAttribute('aria-hidden', 'true');
+
+		clone
+			.querySelectorAll('a, button, input, select, textarea, [tabindex]')
+			.forEach(element => {
+				element.setAttribute('tabindex', '-1');
+			});
+
+		wrapper.appendChild(clone);
 	});
 
 	const moveWidth = slides.reduce((width, slide) => width + slide.getBoundingClientRect().width, 0);
@@ -451,30 +470,42 @@ function initTableHover() {
 		cells.forEach(cell => cell.classList.remove('js-highlight', 'js-highlight-cross'));
 	};
 
-	table.addEventListener('mousemove', e => {
-		const cell = e.target.closest('td, th');
+	table.addEventListener('mousemove', event => {
+		const cell = event.target.closest('td, th');
 		if (!cell || cell === currentCell || !table.contains(cell)) return;
 
 		currentCell = cell;
 		if (ticking) return;
+
 		ticking = true;
 
 		requestAnimationFrame(() => {
-			const colIndex = currentCell.cellIndex;
-			const row = currentCell.parentElement;
+			if (!table.contains(cell)) {
+				ticking = false;
+				return;
+			}
+
+			const colIndex = cell.cellIndex;
+			const row = cell.parentElement;
 
 			clearHighlight();
 
 			if (row.parentElement.tagName === 'THEAD') {
-				currentCell.classList.add('js-highlight');
+				cell.classList.add('js-highlight');
 			} else {
-				Array.from(row.cells).forEach(rowCell => rowCell.classList.add('js-highlight'));
-				currentCell.classList.add('js-highlight-cross');
+				Array.from(row.cells).forEach(rowCell => {
+					rowCell.classList.add('js-highlight');
+				});
+
+				cell.classList.add('js-highlight-cross');
 			}
 
 			rows.forEach(tableRow => {
 				const colCell = tableRow.cells[colIndex];
-				if (colCell && colCell !== currentCell) colCell.classList.add('js-highlight');
+
+				if (colCell && colCell !== cell) {
+					colCell.classList.add('js-highlight');
+				}
 			});
 
 			ticking = false;
@@ -522,20 +553,17 @@ function initModal() {
 	let lastTrigger = null;
 
 	document.querySelectorAll('[data-modal-target]').forEach(trigger => {
-		const heading = trigger.querySelector('.js-modal-content :is(h2, h3, h4)');
+		const heading = trigger.querySelector('h2, h3, h4');
 		const label = heading?.textContent?.trim() || 'Open details';
 
-		trigger.setAttribute('role', 'button');
-		trigger.setAttribute('tabindex', '0');
 		trigger.setAttribute('aria-haspopup', 'dialog');
 		trigger.setAttribute('aria-label', label);
+	});
 
-		trigger.addEventListener('keydown', e => {
-			if (e.key !== 'Enter' && e.key !== ' ') return;
-
-			e.preventDefault();
-			trigger.click();
-		});
+	modal.addEventListener('close', () => {
+		modalBody.innerHTML = '';
+		lastTrigger?.focus();
+		lastTrigger = null;
 	});
 
 	document.addEventListener('click', e => {
@@ -543,7 +571,9 @@ function initModal() {
 		if (!trigger) return;
 
 		const selector = trigger.dataset.modalTarget;
-		const inner = selector ? trigger.querySelector(selector) : null;
+		const inner = selector
+			? trigger.closest('.case__item')?.querySelector(selector)
+			: null;
 		if (!inner) return;
 
 		lastTrigger = trigger;
@@ -574,11 +604,9 @@ function initModal() {
 				],
 				{ duration: 200, easing: 'ease-in' }
 			)
-			.finished.then(() => {
-				modal.close();
-				modalBody.innerHTML = '';
-				lastTrigger?.focus();
-			});
+			.finished
+			.then(() => modal.close())
+			.catch(() => modal.close());
 	});
 }
 
@@ -586,8 +614,6 @@ function initModal() {
 function initTableToggle() {
 	const table = document.querySelector('.js-cross-cell');
 	if (!table) return;
-
-	const initialWidth = table.offsetWidth;
 
 	table.querySelectorAll('.js-close').forEach(button => {
 		const cell = button.closest('td, th');
@@ -630,7 +656,8 @@ function initTableToggle() {
 				el.classList.remove('js-hidden');
 				el.removeAttribute('aria-hidden');
 			});
-			table.style.width = `${initialWidth}px`;
+
+			table.style.removeProperty('width');
 		}
 	});
 }
@@ -682,8 +709,11 @@ function initCtaVideo() {
 
 		// 未ロードなら source をセットして load() してから play
 		if (!isLoaded) {
-			const source = ctaVideo.querySelector('source');
-			source.src = source.dataset.src; // ← data-src から src にセット
+			const source = ctaVideo.querySelector('source[data-src]');
+
+			if (!source) return;
+
+			source.src = source.dataset.src;
 			ctaVideo.load();
 			isLoaded = true;
 		}
@@ -717,22 +747,34 @@ function initFloatCta() {
 	const floatCta = document.getElementById('floatCta');
 	const hero = document.querySelector('.hero');
 	const mainCta = document.querySelector('.main-cta');
+
 	if (!floatCta || !hero) return;
 
-	// heroを抜けたら表示、main-ctaに入ったら非表示
+	const link = floatCta.querySelector('.float-cta__link');
+
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.target === hero) {
 				const past = !entry.isIntersecting;
+
 				floatCta.classList.toggle('is-visible', past);
 				floatCta.setAttribute('aria-hidden', String(!past));
+				link?.setAttribute('tabindex', past ? '0' : '-1');
 			}
+
 			if (entry.target === mainCta) {
-				floatCta.classList.toggle('is-hidden', entry.isIntersecting);
+				const isHidden = entry.isIntersecting;
+
+				floatCta.classList.toggle('is-hidden', isHidden);
+				floatCta.setAttribute('aria-hidden', String(isHidden));
+				link?.setAttribute('tabindex', isHidden ? '-1' : '0');
 			}
 		});
 	}, { threshold: 0.2 });
 
 	observer.observe(hero);
-	if (mainCta) observer.observe(mainCta);
+
+	if (mainCta) {
+		observer.observe(mainCta);
+	}
 }

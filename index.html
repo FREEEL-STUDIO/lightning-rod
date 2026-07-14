@@ -33,7 +33,6 @@
   <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
   <!-- hero__video LCP -->
   <link rel="preload" as="image" href="assets/img/bg_hero.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/img/img_product-symbol.webp" fetchpriority="high">
   <!-- lite-youtube-embed -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed/src/lite-yt-embed.css" media="print"
     onload="this.media='all'">
@@ -73,7 +72,7 @@
     </div>
     <nav id="global-nav" class="header__nav" aria-label="Global navigation">
       <div class="header__nav-inner">
-        <ul class="header__nav-list l-flex-end">
+        <ul class="header__nav-list l-flex l-flex--end">
           <li>
             <a href="#overview" class="header__nav-link">What is PDCE?</a>
           </li>
@@ -103,7 +102,7 @@
 
   <main id="main-content">
 
-    <section class="hero l-grid-center" aria-labelledby="hero-title">
+    <section class="hero l-grid l-grid--center" aria-labelledby="hero-title">
       <video id="heroVideo" class="hero__video l-abs-full" poster="assets/img/bg_hero.webp" loop muted playsinline
         aria-hidden="true" width="1920" height="1080" data-src="assets/img/movie/movie_hero.mp4">
       </video>
@@ -116,8 +115,8 @@
           <span class="c-pill">Made in Japan</span>
         </p>
       </div>
-      <img src="assets/img/img_product-symbol.webp" alt="Product image of the PDCE new lightning rod"
-        class="hero__product-image" width="320" height="274">
+      <img src="assets/img/img_product-symbol.webp" fetchpriority="high"
+        alt="Product image of the PDCE new lightning rod" width="320" height="274">
     </section>
 
     <section class="overview u-mt-lg" id="overview">
@@ -125,12 +124,12 @@
         <div class="overview__bg"></div>
       </div>
       <div class="l-wrapper">
-        <h2 class="c-heading-lv1">
-          <span class="c-heading-lv1__main">PDCE</span>
-          <span class="c-heading-lv1__sub">The PDCE LIGHTNING PROTECTION SYSTEM is a lightning protection device
+        <h2 class="c-heading-section">
+          <span class="c-heading-section__main">PDCE</span>
+          <span class="c-heading-section__sub">The PDCE LIGHTNING PROTECTION SYSTEM is a lightning protection device
             designed to suppress lightning strikes.</span>
         </h2>
-        <div class="overview__content l-grid-2">
+        <div class="overview__content l-grid l-grid--cols-2">
           <div class="overview__disc js-fade-up">
             <p class="u-mt-0">
               Due to the effects of climate change, lightning is no longer a region-specific risk; it can occur almost
@@ -149,7 +148,7 @@
           </div>
           <div class="overview__case">
             <div class="js-gallery-y">
-              <div class="overview__case-set l-flex-between">
+              <div class="overview__case-set l-flex l-flex--between">
                 <div class="overview__case-image js-gallery-y__item">
                   <img src="assets/img/img_overview-case-01.webp"
                     alt="Marine lightning protection installation examples" width="242" height="274" loading="lazy">
@@ -165,7 +164,7 @@
                     demonstrating its proven reliability.</dd>
                 </dl>
               </div>
-              <div class="overview__case-set l-flex-between u-mt-md">
+              <div class="overview__case-set l-flex l-flex--between u-mt-md">
                 <dl class="overview__case-content js-gallery-y__item">
                   <dt class="overview__case-title">
                     <img src="assets/img/img_ttl-overview.svg" alt="CASE STUDY" width="165" height="20" loading="lazy">
@@ -183,7 +182,7 @@
               </div>
             </div>
             <div class="js-gallery-y">
-              <div class="overview__case-set l-flex-between">
+              <div class="overview__case-set l-flex l-flex--between">
                 <div class="overview__case-image js-gallery-y__item">
                   <img src="assets/img/img_overview-case-03.webp"
                     alt="Lightning protection installation examples for public facilities" width="242" height="274">
@@ -198,7 +197,7 @@
                   </dd>
                 </dl>
               </div>
-              <div class="overview__case-set l-flex-between u-mt-md">
+              <div class="overview__case-set l-flex l-flex--between u-mt-md">
                 <dl class="overview__case-content js-gallery-y__item">
                   <dt class="overview__case-title">
                     <img src="assets/img/img_ttl-overview.svg" alt="" width="165" height="20">
@@ -216,7 +215,7 @@
               </div>
             </div>
             <div class="js-gallery-y">
-              <div class="overview__case-set l-flex-between">
+              <div class="overview__case-set l-flex l-flex--between">
                 <div class="overview__case-image js-gallery-y__item">
                   <img src="assets/img/img_overview-case-05.webp"
                     alt="Lightning protection installation examples for stadiums" width="242" height="274">
@@ -231,7 +230,7 @@
                     lightning damage.</dd>
                 </dl>
               </div>
-              <div class="overview__case-set l-flex-between u-mt-md">
+              <div class="overview__case-set l-flex l-flex--between u-mt-md">
                 <dl class="overview__case-content js-gallery-y__item">
                   <dt class="overview__case-title">
                     <img src="assets/img/img_ttl-overview.svg" alt="" width="165" height="20">
@@ -270,21 +269,22 @@
     </section>
 
     <section class="about l-wrapper u-mt-2lg" id="about">
-      <h2 class="c-heading-lv1">
-        <span class="c-heading-lv1__main">ABOUT PDCE</span>
-        <span class="c-heading-lv1__sub">Watch the System in Action</span>
+      <h2 class="c-heading-section">
+        <span class="c-heading-section__main">ABOUT PDCE</span>
+        <span class="c-heading-section__sub">Watch the System in Action</span>
       </h2>
       <div class="about__video u-mt-sm">
         <lite-youtube videoid="dw4s62jBQ5o" params="start=8&end=260&rel=0&cc_load_policy=1"
-          style="background-image: url('assets/img/img_about-thumb.webp');" class="js-fade-up">
+          style="background-image: url('assets/img/img_about-thumb.webp');" class="js-fade-up"
+          aria-label="Video: Overview of the PDCE Lightning Protection System">
         </lite-youtube>
       </div>
     </section>
 
-    <section class="case u-pt-slg u-mt-2lg" id="case" data-fullBg>
+    <section class="case u-pt-slg u-mt-2lg" id="case" data-full-bg>
       <div class="l-wrapper">
-        <h2 class="c-heading-lv1">
-          <span class="c-heading-lv1__main">CASE STUDY</span>
+        <h2 class="c-heading-section">
+          <span class="c-heading-section__main">CASE STUDY</span>
         </h2>
         <div class="js-fade-up">
           <div class="case__info l-flex u-mt-sm">
@@ -300,36 +300,47 @@
               venues, homes, schools, and construction sites.
             </p>
           </div>
-          <ul class="case__movie-list l-grid-3 u-mt-slg">
+          <ul class="case__movie-list l-grid l-grid--cols-3 u-mt-slg">
             <li>
-              <lite-youtube videoid="FPytwYxxGB0"
-                params="rel=0&mute=1&cc_load_policy=1&loop=1&playlist=FPytwYxxGB0"></lite-youtube>
-              <p>Mitsuzawa Park <br>(Yokohama City, Kanagawa Prefecture)</p>
+              <lite-youtube videoid="FPytwYxxGB0" params="rel=0&mute=1&cc_load_policy=1&loop=1&playlist=FPytwYxxGB0"
+                aria-label="Video: PDCE installation at Mitsuzawa Park">
+              </lite-youtube>
+              <p class="case__movie-caption">
+                Mitsuzawa Park <br>(Yokohama City, Kanagawa Prefecture)
+              </p>
             </li>
             <li>
-              <lite-youtube videoid="Rh67r-b0jyA"
-                params="rel=0&mute=1&cc_load_policy=1&loop=1&playlist=Rh67r-b0jyA"></lite-youtube>
-              <p class="u-mt-xs">Chikyu <br>(Deep-Sea Exploration Vessel)</p>
+              <lite-youtube videoid="Rh67r-b0jyA" params="rel=0&mute=1&cc_load_policy=1&loop=1&playlist=Rh67r-b0jyA"
+                aria-label="Video: PDCE installation on the deep-sea exploration vessel Chikyu">
+              </lite-youtube>
+              <p class="case__movie-caption">
+                Chikyu <br>(Deep-Sea Exploration Vessel)
+              </p>
             </li>
             <li>
-              <lite-youtube videoid="PV8P1Q7qRcw"
-                params="rel=0&mute=1&cc_load_policy=1&loop=1&playlist=PV8P1Q7qRcw"></lite-youtube>
-              <p class="u-mt-xs">Ushiku Daibutsu <br>(Ibaraki Prefecture)</p>
+              <lite-youtube videoid="PV8P1Q7qRcw" params="rel=0&mute=1&cc_load_policy=1&loop=1&playlist=PV8P1Q7qRcw"
+                aria-label="Video: PDCE installation at Ushiku Daibutsu">
+              </lite-youtube>
+              <p class="case__movie-caption">
+                Ushiku Daibutsu <br>(Ibaraki Prefecture)
+              </p>
             </li>
           </ul>
         </div>
       </div>
       <div class="js-marquee u-mt-lg js-fade-up l-overflow-hidden">
         <ul class="case__list">
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-01.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Leisure Facilities</h3>
-              <p>Here are some examples of our successful implementation of the PDCE LIGHTNING PROTECTION SYSTEM as a
-                safety measure for high-altitude and outdoor environments.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-01.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Leisure Facilities</h3>
+                <p>Here are some examples of our successful implementation of the PDCE LIGHTNING PROTECTION SYSTEM as a
+                  safety measure for high-altitude and outdoor environments.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Large-Scale Outdoor Leisure Facility</h4>
+              <h4 class="c-heading-lg">Case Study | Large-Scale Outdoor Leisure Facility</h4>
               <p class="u-mt-xs">
                 The PDCE LIGHTNING PROTECTION SYSTEM has been installed at a large-scale outdoor leisure facility to
                 protect against direct lightning strikes.
@@ -341,36 +352,43 @@
                 solution that ensured both visitor safety and stable facility operations.
               </p>
               <p>
-                The PDCE LIGHTNING PROTECTION SYSTEM was adopted as a lightning protection measure based on the concept
+                The PDCE LIGHTNING PROTECTION SYSTEM was adopted as a lightning protection measure based on the
+                concept
                 of “suppressing” rather than “absorbing” lightning, and is utilized as a comprehensive solution to
                 protect visitors, equipment, and operations.
               </p>
-              <figure class="l-grid-3 u-mt-xs u-gap">
+              <figure class="l-grid l-grid--cols-3 u-mt-xs u-gap">
                 <img src="assets/img/case/leisure/01.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/leisure/02.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/leisure/03.webp" alt="" loading="lazy" width="392" height="261">
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-02.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Mines and Factories</h3>
-              <p>By leveraging existing infrastructure and adopting a new lightning protection device, we are working to
-                enhance equipment protection and business continuity.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-02.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Mines and Factories</h3>
+                <p>By leveraging existing infrastructure and adopting a new lightning protection device, we are working
+                  to
+                  enhance equipment protection and business continuity.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Mines and Factories</h4>
+              <h4 class="c-heading-lg">Case Study | Mines and Factories</h4>
               <p class="u-mt-xs">
                 At a mining facility, we upgraded to the PDCE LIGHTNING PROTECTION SYSTEM by removing the existing
-                lightning rods and utilizing the existing concrete poles and grounding equipment. In recent years, there
+                lightning rods and utilizing the existing concrete poles and grounding equipment. In recent years,
+                there
                 has been an increasing trend, particularly in factories, logistics centers, and warehouses, to switch
                 from conventional lightning rods to the PDCE LIGHTNING PROTECTION SYSTEM, which suppresses lightning
                 strikes.<br>
-                The top priority in corporate disaster preparedness is the protection of human life. Beyond that, it is
+                The top priority in corporate disaster preparedness is the protection of human life. Beyond that, it
+                is
                 crucial to minimize the loss of business assets and enable business continuity and rapid recovery. In
                 highly automated factories in particular, lightning strikes can significantly impact electrical and
-                control systems, posing risks directly linked to business operations, such as production stoppages, data
+                control systems, posing risks directly linked to business operations, such as production stoppages,
+                data
                 loss, and equipment damage.<br>
                 The PDCE LIGHTNING PROTECTION SYSTEM is a lightning protection solution based on the concept of
                 suppressing lightning rather than simply absorbing it. The lineup ranges from wide-area models that
@@ -378,25 +396,28 @@
                 designed for installation in high-temperature environments, supporting stable operation and ensuring
                 safety in harsh industrial sites.
               </p>
-              <figure class="l-grid-3 u-mt-xs u-gap">
+              <figure class="l-grid l-grid--cols-3 u-mt-xs u-gap">
                 <img src="assets/img/case/mine/01.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/mine/02.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/mine/03.webp" alt="" loading="lazy" width="392" height="261">
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-03.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Communication Equipment</h3>
-              <p>The installation of a new lightning protection device ensures the stable operation of communication
-                equipment even under harsh natural conditions.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-03.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Communication Equipment</h3>
+                <p>The installation of a new lightning protection device ensures the stable operation of communication
+                  equipment even under harsh natural conditions.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Antenna Base</h4>
+              <h4 class="c-heading-lg">Case Study | Antenna Base</h4>
               <p class="u-mt-xs">
                 At a disaster prevention radio relay facility located near the summit at an elevation of approximately
-                1,100 meters, removing the conventional needle-type lightning rod, the PDCE LIGHTNING PROTECTION SYSTEM
+                1,100 meters, removing the conventional needle-type lightning rod, the PDCE LIGHTNING PROTECTION
+                SYSTEM
                 was installed to suppress lightning strikes.<br>
                 This facility is critical infrastructure for reliably delivering local disaster prevention information
                 to residents, and any equipment shutdown caused by lightning strikes would have a serious impact on
@@ -404,30 +425,34 @@
                 thunderclouds and is exposed to harsh natural conditions such as strong winds, low temperatures, and
                 heavy snowfall, placing it under conditions with a very high risk of lightning strikes. Since
                 conventional needle-type lightning rods are designed to attract lightning, there was a risk that
-                lightning currents could affect the equipment and communication devices during a strike. Therefore, the
+                lightning currents could affect the equipment and communication devices during a strike. Therefore,
+                the
                 PDCE LIGHTNING PROTECTION SYSTEM was adopted which suppresses the occurrence of direct lightning
                 strikes, to ensure the stable operation of communication equipment and improve reliability.<br>
                 The installation of the PDCE LIGHTNING PROTECTION SYSTEM has not only reduced the risk of lightning
-                strikes across the entire facility but has also led to the creation of an environment that more reliably
+                strikes across the entire facility but has also led to the creation of an environment that more
+                reliably
                 fulfills its primary role: reducing maintenance burdens and ensuring the continuous operation of
                 disaster prevention radio systems during emergencies.
               </p>
-              <figure class="l-grid-3 u-mt-xs u-gap">
+              <figure class="l-grid l-grid--cols-3 u-mt-xs u-gap">
                 <img src="assets/img/case/antenna/01.webp" alt="" loading="lazy" width="392" height="457">
                 <img src="assets/img/case/antenna/02.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/antenna/03.webp" alt="" loading="lazy" width="392" height="261">
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-04.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Public Facilities</h3>
-              <p>The adoption of a new lightning protection device has ensured the stable operation of water treatment
-                facilities and improved the reliability of water supply during disasters.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-04.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Public Facilities</h3>
+                <p>The adoption of a new lightning protection device has ensured the stable operation of water treatment
+                  facilities and improved the reliability of water supply during disasters.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Water Treatment Facility</h4>
+              <h4 class="c-heading-lg">Case Study | Water Treatment Facility</h4>
               <p class="u-mt-xs">
                 Following a lightning strike at a water treatment facility that temporarily shut down operations, a
                 comprehensive review of lightning protection measures was initiated. As a facility responsible for a
@@ -443,27 +468,31 @@
                 on traditional “lightning strike absorption” measures, we reduced the risk of lightning currents
                 entering the equipment. Our goal was to ensure the stable operation of the water treatment plant and
                 establish a system capable of maintaining water supply even during disasters.<br>
-                The implementation of the PDCE LIGHTNING PROTECTION SYSTEM contributes to ensuring the high reliability
+                The implementation of the PDCE LIGHTNING PROTECTION SYSTEM contributes to ensuring the high
+                reliability
                 and business continuity required of water supply infrastructure.
               </p>
-              <figure class="l-grid-3 u-mt-xs u-gap">
+              <figure class="l-grid l-grid--cols-3 u-mt-xs u-gap">
                 <img src="assets/img/case/water-supply/01.webp" alt="" loading="lazy" width="392" height="457">
                 <img src="assets/img/case/water-supply/02.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/water-supply/03.webp" alt="" loading="lazy" width="392" height="261">
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-05.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Apartment Complex</h3>
-              <p>By ensuring the entire building is within the protected area, we simultaneously ensure the safety of
-                residents and the stable operation of shared facilities.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-05.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Apartment Complex</h3>
+                <p>By ensuring the entire building is within the protected area, we simultaneously ensure the safety of
+                  residents and the stable operation of shared facilities.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Apartment Building</h4>
+              <h4 class="c-heading-lg">Case Study | Apartment Building</h4>
               <p class="u-mt-xs">
-                Two PDCE LIGHTNING PROTECTION SYSTEMS were installed on the roof of a 14-story apartment building. This
+                Two PDCE LIGHTNING PROTECTION SYSTEMS were installed on the roof of a 14-story apartment building.
+                This
                 building previously had two conventional needle-type lightning rods installed, but one of them was
                 damaged due to strong winds caused by a typhoon.<br>
                 As renovation work proceeded, the lightning protection system was reviewed with the goal of not merely
@@ -479,22 +508,24 @@
                 In apartment buildings that support residents’ daily lives, the PDCE LIGHTNING PROTECTION SYSTEM has
                 been implemented as a lightning protection measure that ensures safety and peace of mind.
               </p>
-              <figure class="l-grid-3 u-mt-xs u-gap">
+              <figure class="l-grid l-grid--cols-3 u-mt-xs u-gap">
                 <img src="assets/img/case/apartment/01.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/apartment/02.webp" alt="" loading="lazy" width="392" height="261">
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-06.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Residential</h3>
-              <p>By installing a new lightning protection device on the roof, we have reduced the risk of direct
-                lightning strikes and improved the safety of the living environment while minimizing the load on the
-                building.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-06.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Residential</h3>
+                <p>By installing a new lightning protection device on the roof, we have reduced the risk of direct
+                  lightning strikes and improved the safety of the living environment while minimizing the load on the
+                  building.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Single-Family Home</h4>
+              <h4 class="c-heading-lg">Case Study | Single-Family Home</h4>
               <p class="u-mt-xs">
                 The PDCE LIGHTNING PROTECTION SYSTEM was installed on the roof of a single-family home. Since this
                 installation was for a relatively small-scale residence, an installation method that not only ensured
@@ -508,62 +539,71 @@
                 daily life itself. By installing the PDCE LIGHTNING PROTECTION SYSTEM, we reduced the risk of direct
                 lightning strikes and contributed to a living environment where families can live with peace of mind.
               </p>
-              <figure class="l-grid-3 u-mt-xs u-gap">
+              <figure class="l-grid l-grid--cols-3 u-mt-xs u-gap">
                 <img src="assets/img/case/house/01.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/house/02.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/house/03.webp" alt="" loading="lazy" width="392" height="261">
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-07.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Manufacturing Plant</h3>
-              <p>The installation of a new lightning protection device has reduced the risk of lightning damage across
-                the entire site—including production equipment and ancillary facilities—and helped ensure a stable
-                operating environment.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-07.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Manufacturing Plant</h3>
+                <p>The installation of a new lightning protection device has reduced the risk of lightning damage across
+                  the entire site—including production equipment and ancillary facilities—and helped ensure a stable
+                  operating environment.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Ready-Mix Concrete Plant</h4>
+              <h4 class="c-heading-lg">Case Study | Ready-Mix Concrete Plant</h4>
               <p class="u-mt-xs">
                 The PDCE LIGHTNING PROTECTION SYSTEM was installed as a direct lightning strike countermeasure at a
                 ready-mix concrete plant located in an area prone to frequent lightning strikes. This facility is
-                situated in an environment with few tall buildings nearby, making it highly susceptible to lightning; it
+                situated in an environment with few tall buildings nearby, making it highly susceptible to lightning;
+                it
                 had previously experienced multiple lightning strikes. When significant lightning damage occurred,
                 production had to be temporarily halted.<br>
                 In a manufacturing facility where stable supply is essential, production stoppages pose a serious risk
                 directly affecting business continuity. Therefore, we proposed a plan to remove the conventional
                 lightning rod installed on the roof of the batching plant and install the PDCE LIGHTNING PROTECTION
                 SYSTEM, which can cover a wide area on the approximately 24-meter-high plant roof.<br>
-                This configuration encompasses not only the batching plant itself but also the entire site—including the
-                office building, ancillary facilities, and storage tanks—within the protected area, thereby reducing the
+                This configuration encompasses not only the batching plant itself but also the entire site—including
+                the
+                office building, ancillary facilities, and storage tanks—within the protected area, thereby reducing
+                the
                 risk of lightning strikes. The implementation of the PDCE LIGHTNING PROTECTION SYSTEM contributes to
                 ensuring stable operations by protecting both production equipment and the work environment.
               </p>
-              <figure class="l-grid-3 u-mt-xs u-gap">
+              <figure class="l-grid l-grid--cols-3 u-mt-xs u-gap">
                 <img src="assets/img/case/factory/01.webp" alt="" loading="lazy" width="392" height="457">
                 <img src="assets/img/case/factory/02.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/factory/03.webp" alt="" loading="lazy" width="392" height="261">
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-08.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Small Vessels</h3>
-              <p>Reduces the risk of lightning strikes while underway or at anchor, protecting the hull and navigation
-                electronics while improving operational reliability.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-08.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Small Vessels</h3>
+                <p>Reduces the risk of lightning strikes while underway or at anchor, protecting the hull and navigation
+                  electronics while improving operational reliability.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Small Vessels</h4>
+              <h4 class="c-heading-lg">Case Study | Small Vessels</h4>
               <p class="u-mt-xs">
                 At sea, ships and boats themselves act as elevated structures relative to their surroundings, making
                 them prime targets for lightning strikes. While a hull equipped with a standard lightning rod protects
                 the vessel by diverting the current into the sea, the lightning current often flows through the ship’s
                 interior during this process, frequently causing damage to electrical equipment such as radar, radios,
                 and navigation instruments.<br>
-                To mitigate these risks, this vessel has adopted the PDCE LIGHTNING PROTECTION SYSTEM, which is based on
-                the concept of “preventing lightning strikes.” Taking into account the unique maritime environment, the
+                To mitigate these risks, this vessel has adopted the PDCE LIGHTNING PROTECTION SYSTEM, which is based
+                on
+                the concept of “preventing lightning strikes.” Taking into account the unique maritime environment,
+                the
                 PDCE LIGHTNING PROTECTION SYSTEM was installed with enhanced vibration resistance to withstand the
                 constant engine vibrations and motion caused by waves.<br>
                 The installation of the PDCE LIGHTNING PROTECTION SYSTEM mitigates the risk of lightning strikes while
@@ -571,100 +611,113 @@
                 critical electronic equipment. This serves as an example of how to enhance safety and operational
                 reliability on small vessels.
               </p>
-              <figure class="l-grid-3 u-mt-xs u-gap">
+              <figure class="l-grid l-grid--cols-3 u-mt-xs u-gap">
                 <img src="assets/img/case/ship/01.webp" alt="" loading="lazy" width="392" height="522">
                 <img src="assets/img/case/ship/02.webp" alt="" loading="lazy" width="392" height="522">
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-09.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Large Vessels</h3>
-              <p>The installation of our new lightning protection device ensures the safety and operational continuity
-                of the hull, derrick, and precision equipment during long-term offshore surveys.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-09.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Large Vessels</h3>
+                <p>The installation of our new lightning protection device ensures the safety and operational continuity
+                  of the hull, derrick, and precision equipment during long-term offshore surveys.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Deep-sea Research Vessel “Chikyu”</h3>
-                <p class="u-mt-xs">
-                  National Research and Development Agency
-                  One PDCE LIGHTNING PROTECTION SYSTEM was delivered to the deep-sea research vessel “Chikyu,” owned by
-                  the Japan Agency for Marine-Earth Science and Technology (JAMSTEC). The “Chikyu” is a 210-meter-long
-                  research vessel—unparalleled in the world—capable of conducting drilling operations while anchored at
-                  sea for extended periods; its massive structure makes it particularly vulnerable to lightning
-                  strikes.<br>
-                  On this vessel, the PDCE LIGHTNING PROTECTION SYSTEM was installed at the very top of the
-                  120-meter-tall derrick. This creates a wide protection zone covering the entire hull, safeguarding the
-                  derrick, the hull, and the numerous precision instruments on board from the risk of lightning strikes.
-                  Even in the open sea, where there is no place to escape, the lightning protection sphere—based on the
-                  philosophy of “preventing lightning strikes”—supports the safety and continuity of research
-                  activities.<br>
-                  On the “Chikyu,” which conducts surveys in waters around the world, the PDCE LIGHTNING PROTECTION
-                  SYSTEM functions regardless of location and is operated as a reliable lightning protection measure
-                  even under harsh natural conditions.
-                </p>
-                <div class="u-mt-xs">
-                  <iframe
-                    data-src="https://www.youtube.com/embed/Rh67r-b0jyA?rel=0&cc_load_policy=1&loop=1&playlist=Rh67r-b0jyA"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen="" loading="lazy" width="1000" height="562.5" class="c-modal__iframe">
-                  </iframe>
-                </div>
+              <h4 class="c-heading-lg">Case Study | Deep-sea Research Vessel “Chikyu”</h4>
+              <p class="u-mt-xs">
+                National Research and Development Agency
+                One PDCE LIGHTNING PROTECTION SYSTEM was delivered to the deep-sea research vessel “Chikyu,” owned by
+                the Japan Agency for Marine-Earth Science and Technology (JAMSTEC). The “Chikyu” is a 210-meter-long
+                research vessel—unparalleled in the world—capable of conducting drilling operations while anchored at
+                sea for extended periods; its massive structure makes it particularly vulnerable to lightning
+                strikes.<br>
+                On this vessel, the PDCE LIGHTNING PROTECTION SYSTEM was installed at the very top of the
+                120-meter-tall derrick. This creates a wide protection zone covering the entire hull, safeguarding the
+                derrick, the hull, and the numerous precision instruments on board from the risk of lightning strikes.
+                Even in the open sea, where there is no place to escape, the lightning protection sphere—based on the
+                philosophy of “preventing lightning strikes”—supports the safety and continuity of research
+                activities.<br>
+                On the “Chikyu,” which conducts surveys in waters around the world, the PDCE LIGHTNING PROTECTION
+                SYSTEM functions regardless of location and is operated as a reliable lightning protection measure
+                even under harsh natural conditions.
+              </p>
+              <div class="u-mt-xs">
+                <iframe
+                  data-src="https://www.youtube.com/embed/Rh67r-b0jyA?rel=0&cc_load_policy=1&loop=1&playlist=Rh67r-b0jyA"
+                  title="Video: PDCE installation on the deep-sea research vessel Chikyu" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen loading="lazy" width="1000" height="562.5" class="c-modal__iframe">
+                </iframe>
+              </div>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-10.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Large-Scale Structures</h3>
-              <p>Our new lightning protection device mitigates the long-standing risk of lightning strikes, helping to
-                ensure the safety of visitors and cultural assets.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-10.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Large-Scale Structures</h3>
+                <p>Our new lightning protection device mitigates the long-standing risk of lightning strikes, helping to
+                  ensure the safety of visitors and cultural assets.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Higashi Hongan-ji “Ushiku Daibutsu”</h4>
+              <h4 class="c-heading-lg">Case Study | Higashi Hongan-ji “Ushiku Daibutsu”</h4>
               <p class="u-mt-xs">
                 One PDCE LIGHTNING PROTECTION SYSTEM was installed as a lightning protection measure for the Amida
                 Buddha statue, “Ushiku Daibutsu” (Ibaraki Prefecture). This massive 120-meter-tall bronze standing
                 statue is a prominent landmark in the surrounding area and has faced the risk of lightning strikes for
                 many years. <br>
                 In recent years, as the frequency of lightning strikes has increased due to climate change, the PDCE
-                LIGHTNING PROTECTION SYSTEM—based on the concept of “preventing lightning strikes”—was adopted to ensure
+                LIGHTNING PROTECTION SYSTEM—based on the concept of “preventing lightning strikes”—was adopted to
+                ensure
                 the safety of visitors and protect internal facilities, in addition to conventional measures. By
                 creating a protective zone that covers the entire Great Buddha, the system safeguards both this
                 culturally significant structure and the space visited by many worshippers every day from the risk of
                 lightning strikes. <br>
-                The installation of the PDCE LIGHTNING PROTECTION SYSTEM serves as a new model for lightning protection
+                The installation of the PDCE LIGHTNING PROTECTION SYSTEM serves as a new model for lightning
+                protection
                 measures that successfully balances cultural value and safety.
               </p>
               <div class="u-mt-xs">
                 <iframe
                   data-src="https://www.youtube.com/embed/PV8P1Q7qRcw?rel=0&cc_load_policy=1&loop=1&playlist=PV8P1Q7qRcw"
-                  frameborder="0"
+                  title="Video: PDCE installation on the Higashi Hongan-ji Ushiku Daibutsu" frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen="" loading="lazy" width="1000" height="562.5" class="c-modal__iframe">
+                  allowfullscreen loading="lazy" width="1000" height="562.5" class="c-modal__iframe">
                 </iframe>
               </div>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-11.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Golf Course</h3>
-              <p>Our new lightning protection device creates lightning-safe zones, helping to ensure visitor safety and
-                reduce the burden on on-site operations.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-11.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Golf Course</h3>
+                <p>Our new lightning protection device creates lightning-safe zones, helping to ensure visitor safety
+                  and
+                  reduce the burden on on-site operations.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Golf Course</h4>
+              <h4 class="c-heading-lg">Case Study | Golf Course</h4>
               <p class="u-mt-xs">
-                At golf courses with expansive grounds, safely guiding players and visitors when thunderclouds approach
-                rapidly is a major challenge. In this case study, the PDCE LIGHTNING PROTECTION SYSTEM was installed in
+                At golf courses with expansive grounds, safely guiding players and visitors when thunderclouds
+                approach
+                rapidly is a major challenge. In this case study, the PDCE LIGHTNING PROTECTION SYSTEM was installed
+                in
                 areas within the golf course where people tend to congregate, as a measure to address high-risk
                 lightning strike zones.<br>
                 The PDCE LIGHTNING PROTECTION SYSTEM suppresses lightning strikes within specific areas, creating
                 “lightning-safe zones” on the course and around the clubhouse. This prevents the conventional chaos
-                caused by crowds gathering in lightning shelters, enabling smooth guidance and temporary evacuation even
+                caused by crowds gathering in lightning shelters, enabling smooth guidance and temporary evacuation
+                even
                 when thunderclouds approach.<br>
-                Additionally, within these lightning-safe zones, visitors can wait while remaining in their golf carts,
+                Additionally, within these lightning-safe zones, visitors can wait while remaining in their golf
+                carts,
                 contributing to improved safety during play interruptions and reduced operational burden.
               </p>
               <figure class="u-mt-xs c-modal__media-asymmetry">
@@ -673,15 +726,17 @@
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-12.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Stadium</h3>
-              <p>The installation of a new lightning protection device ensures safety across a wide area—including the
-                playing field and spectator stands—and reduces risks associated with event operations.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-12.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Stadium</h3>
+                <p>The installation of a new lightning protection device ensures safety across a wide area—including the
+                  playing field and spectator stands—and reduces risks associated with event operations.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Stadium</h4>
+              <h4 class="c-heading-lg">Case Study | Stadium</h4>
               <p class="u-mt-xs">
                 A total of eight PDCE LIGHTNING PROTECTION SYSTEMS were delivered and installed at track and field
                 stadiums and ball fields to ensure the safety of visitors and users.<br>
@@ -691,7 +746,8 @@
                 thunderclouds approach.<br>
                 The installation of the PDCE LIGHTNING PROTECTION SYSTEM creates a protective zone that suppresses
                 lightning strikes across a wide area, including the playing field and spectator stands. Even during
-                sudden lightning strikes, this system contributes to improving the safety of facility users and reducing
+                sudden lightning strikes, this system contributes to improving the safety of facility users and
+                reducing
                 risks associated with event operations.<br>
                 By meeting the high safety standards required of public facilities, we support the creation of an
                 environment where people can enjoy sports with peace of mind.
@@ -699,59 +755,68 @@
               <div class="u-mt-xs">
                 <iframe
                   data-src="https://www.youtube.com/embed/FPytwYxxGB0?rel=0&cc_load_policy=1&loop=1&playlist=FPytwYxxGB0"
-                  frameborder="0"
+                  title="Video: PDCE installation on the Stadium" frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen="" loading="lazy" width="1000" height="562.5" class="c-modal__iframe">
+                  allowfullscreen loading="lazy" width="1000" height="562.5" class="c-modal__iframe">
                 </iframe>
               </div>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-13.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Cultural Properties</h3>
-              <p>By adopting a new type of lightning protection device, we have achieved a reduction in lightning damage
-                risks that ensures both the safety of cultural heritage buildings and visitors.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-13.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Cultural Properties</h3>
+                <p>By adopting a new type of lightning protection device, we have achieved a reduction in lightning
+                  damage
+                  risks that ensures both the safety of cultural heritage buildings and visitors.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Musashi-Mitake Shrine</h4>
+              <h4 class="c-heading-lg">Case Study | Musashi-Mitake Shrine</h4>
               <p class="u-mt-xs">
                 Located at the summit (elevation 929 m), Musashi-Mitake Shrine is a traditional Japanese shrine with a
                 long history. Due to its location, which offers a panoramic view of the surrounding area, it is
                 particularly vulnerable to lightning strikes.<br>
                 While conventional lightning rods had previously been installed on the shrine grounds, the traditional
                 lightning rods were removed and the PDCE LIGHTNING PROTECTION SYSTEM was installed to provide safer
-                protection for the buildings, which are primarily wooden structures of high cultural heritage value.<br>
+                protection for the buildings, which are primarily wooden structures of high cultural heritage
+                value.<br>
                 In cultural properties and historic buildings, there is a high risk that electrical discharges from
                 lightning strikes could lead to fires, and once a fire breaks out, there is a danger that the damage
                 could spread rapidly. The PDCE LIGHTNING PROTECTION SYSTEM is based on the concept of making lightning
-                strikes less likely to occur in the first place, rather than simply intercepting and handling them, and
+                strikes less likely to occur in the first place, rather than simply intercepting and handling them,
+                and
                 has been adopted as a lightning protection measure that simultaneously safeguards both the valuable
                 buildings and the safety of visitors.
               </p>
-              <figure class="l-grid-3 u-mt-xs u-gap">
+              <figure class="l-grid l-grid--cols-3 u-mt-xs u-gap">
                 <img src="assets/img/case/shrine/01.webp" alt="" loading="lazy" width="392" height="528">
                 <img src="assets/img/case/shrine/02.webp" alt="" loading="lazy" width="392" height="261">
                 <img src="assets/img/case/shrine/03.webp" alt="" loading="lazy" width="392" height="261">
               </figure>
             </article>
           </li>
-          <li class="case__item" data-modal-target=".js-modal-content">
-            <img src="assets/img/case/img_case-14.webp" alt="" width="384" height="573" loading="lazy">
-            <div class="case__desc">
-              <h3>Schools</h3>
-              <p>Our new lightning protection device ensures safe evacuation zones, contributing to the rapid evacuation
-                of students and the protection of school facilities.</p>
-            </div>
+          <li class="case__item">
+            <button type="button" class="case__trigger" data-modal-target=".js-modal-content" aria-haspopup="dialog">
+              <img src="assets/img/case/img_case-14.webp" alt="" width="384" height="573" loading="lazy">
+              <div class="case__desc">
+                <h3>Schools</h3>
+                <p>Our new lightning protection device ensures safe evacuation zones, contributing to the rapid
+                  evacuation
+                  of students and the protection of school facilities.</p>
+              </div>
+            </button>
             <article class="js-modal-content is-visually-hidden">
-              <h4 class="c-heading-lv2">Case Study | Schools and Sports Fields</h4>
+              <h4 class="c-heading-lg">Case Study | Schools and Sports Fields</h4>
               <p class="u-mt-xs">
                 In recent years, the risk of lightning strikes at schools and sports fields has increased globally due
                 to the rise in sudden thunderstorms and localized heavy rains. Lightning accidents during outdoor
                 activities are a serious matter involving human life and pose significant safety and operational risks
                 for facility managers.<br>
                 At schools and sports grounds, lightning strikes not only cause personal injury but also frequently
-                result in the shutdown or damage of lighting systems, security cameras, air conditioning equipment, and
+                result in the shutdown or damage of lighting systems, security cameras, air conditioning equipment,
+                and
                 pool facilities, often causing long-term disruptions to educational activities and facility
                 operations.<br>
                 In this case study, in addition to protecting buildings such as school buildings and gymnasiums, the
@@ -760,16 +825,17 @@
                 power source, multiple lightning protection zones were flexibly installed by utilizing existing
                 buildings and fence posts. <br>
                 This ensures safe evacuation areas even when thunderclouds approach suddenly, creating an environment
-                where students can be guided quickly and smoothly. It contributes to improved safety and risk management
+                where students can be guided quickly and smoothly. It contributes to improved safety and risk
+                management
                 in schools and sports facilities.
               </p>
-              <figure class="l-grid-center">
+              <figure class="l-grid l-grid--center">
                 <img src="assets/img/case/school/01.webp" alt="" width="1000" height="677" loading="lazy">
               </figure>
             </article>
           </li>
         </ul>
-        <div class="c-slider-controls l-flex-center">
+        <div class="c-slider-controls l-flex l-flex--center">
           <button class="c-slider-arrow js-marquee-arrow-prev" type="button" aria-label="Previous case">
             <img src="assets/img/icon_arrow-prev.webp" alt="" width="13" height="7" loading="lazy">
           </button>
@@ -800,14 +866,15 @@
     </section>
 
     <section class="details u-mt-2lg" id="details">
-      <h2 class="c-heading-lv1 l-wrapper">
-        <span class="c-heading-lv1__main">MORE DETAILS</span>
-        <span class="c-heading-lv1__sub">Explore additional information about lightning behavior and the PDCE LIGHTNING
+      <h2 class="c-heading-section l-wrapper">
+        <span class="c-heading-section__main">MORE DETAILS</span>
+        <span class="c-heading-section__sub">Explore additional information about lightning behavior and the PDCE
+          LIGHTNING
           PROTECTION SYSTEM.</span>
       </h2>
       <div class="js-fade-up">
         <div class="details__tab u-mt-sm">
-          <ul class="details__tab-list l-grid-3" role="tablist">
+          <ul class="details__tab-list l-grid l-grid--cols-3" role="tablist">
             <li>
               <button id="details-tab-01" class="js-tab is-active" type="button" role="tab" aria-selected="true"
                 aria-controls="details-01" data-target="details-01">Two misconceptions about lightning strikes</button>
@@ -827,9 +894,9 @@
         <div class="c-round-box">
           <section class="details__content js-tab-content is-active" id="details-01" role="tabpanel"
             aria-labelledby="details-tab-01">
-            <div class="details__desc l-flex-around">
+            <div class="details__desc l-flex l-flex--around">
               <div class="details__desc-item u-px-sm">
-                <h3 class="c-heading-lv2">Misconception 1：Lightning strikes high places</h3>
+                <h3 class="c-heading-lg">Misconception 1：Lightning strikes high places</h3>
                 <p>
                   <span class="c-pill">This is a mistake</span>
                   As a result, lightning often strikes high places, but height is not a factor in lightning strikes.
@@ -839,7 +906,7 @@
                 </p>
               </div>
               <div class="details__desc-item u-px-sm">
-                <h3 class="c-heading-lv2">Misconception 2：Lightning strikes one way</h3>
+                <h3 class="c-heading-lg">Misconception 2：Lightning strikes one way</h3>
                 <p>
                   <span class="c-pill">This is also a mistake</span>
                   The electrification strength of the earth's surface is not uniform, and there are conditions such
@@ -851,9 +918,9 @@
           </section>
           <section class="details__content js-tab-content" id="details-02" role="tabpanel"
             aria-labelledby="details-tab-02" tabindex="0">
-            <div class="details__desc l-flex-between">
+            <div class="details__desc l-flex l-flex--between">
               <div class="details__desc-item details__desc-item--pdce">
-                <h3 class="c-heading-lv2">PDCE LIGHTNING PROTECTION SYSTEM</h3>
+                <h3 class="c-heading-lg">PDCE LIGHTNING PROTECTION SYSTEM</h3>
                 <p>
                   Even if a thundercloud approaches, if no "welcoming discharge" is generated, a discharge path will
                   not be formed. Therefore, based on the completely opposite idea of the conventional lightning rod,
@@ -866,7 +933,7 @@
                 <img src="assets/img/img_comparison-01-1.webp" alt="" loading="lazy" width="468" height="430">
               </div>
               <div class="details__desc-item">
-                <h3 class="c-heading-lv2  u-mt-sm">conventional lightning rod</h3>
+                <h3 class="c-heading-lg  u-mt-sm">conventional lightning rod</h3>
                 <p>
                   The principle of lightning strikes (in the case of summer lightning) is that a "leader discharge"
                   starts from the thundercloud to the ground at first. After that, small-scale discharges begin
@@ -882,10 +949,10 @@
           </section>
           <section class="details__content js-tab-content" id="details-03" role="tabpanel"
             aria-labelledby="details-tab-03" tabindex="0">
-            <div class="details__desc l-flex-between">
+            <div class="details__desc l-flex l-flex--between">
               <div class="details__desc-item">
                 <div class="details__desc-pdce">
-                  <h3 class="c-heading-lv2">PDCE LIGHTNING PROTECTION SYSTEM</h3>
+                  <h3 class="c-heading-lg">PDCE LIGHTNING PROTECTION SYSTEM</h3>
                   <table class="details__table">
                     <tr>
                       <th>Overview</th>
@@ -913,7 +980,7 @@
                     </tr>
                   </table>
                 </div>
-                <h3 class="c-heading-lv2 u-mt-sm">conventional
+                <h3 class="c-heading-lg u-mt-sm">conventional
                   lightning rod</h3>
                 <table class="details__table">
                   <tr>
@@ -945,11 +1012,14 @@
                   </tr>
                 </table>
               </div>
-              <div class="details__desc-item l-flex-al-sl-center">
+              <div class="details__desc-item l-self--center">
                 <img src="assets/img/img_comparison-02.webp" alt="" loading="lazy" width="609" height="727">
               </div>
             </div>
           </section>
+          <div class="l-align-c u-mt-sm">
+            <a href="#details" class="c-back-link">Back to Tabs</a>
+          </div>
         </div>
       </div>
       <a href="#main-cta" class="c-button-cta">
@@ -971,8 +1041,8 @@
     </section>
 
     <section class="product u-mt-2lg" id="product">
-      <h2 class="c-heading-lv1 l-wrapper">
-        <span class="c-heading-lv1__main">PRODUCT LIST</span>
+      <h2 class="c-heading-section l-wrapper">
+        <span class="c-heading-section__main">PRODUCT LIST</span>
       </h2>
       <div class="product__inner c-round-box u-mt-xs js-fade-up">
         <div class="c-scroll-hint js-scroll-hint">
@@ -990,7 +1060,7 @@
                     <button type="button" aria-label="Reset product table display">
                       <img src="assets/img/icon_reload.svg" alt="" width="10" height="10" class="u-inline-block"
                         loading="lazy">&nbsp;
-                      表示をリセット
+                      Reset View
                     </button>
                   </th>
                   <th class="product-table__th">
@@ -1188,14 +1258,12 @@
               <tr>
                 <th class="product-table__tb">
                   warranty
-                  <button class="js-close c-tooltip" type="button" data-tooltip="close">ー</button>
                 </th>
                 <td colspan="8" class="l-align-c">10 years warranty</td>
               </tr>
               <tr>
                 <th class="product-table__tb">
                   installation location
-                  <button class="js-close c-tooltip" type="button" data-tooltip="close">ー</button>
                 </th>
                 <td colspan="8" class="l-align-c">The installation location is the highest part of the outdoor
                   structure. (2m or more than the object to be protected)</td>
@@ -1203,21 +1271,18 @@
               <tr>
                 <th class="product-table__tb">
                   rated temp range
-                  <button class="js-close c-tooltip" type="button" data-tooltip="close">ー</button>
                 </th>
                 <td colspan="8" class="l-align-c">Rated operating temperature -40°C to 50°C</td>
               </tr>
               <tr>
                 <th class="product-table__tb">
                   storage temp range
-                  <button class="js-close c-tooltip" type="button" data-tooltip="close">ー</button>
                 </th>
                 <td colspan="8" class="l-align-c">Storage temperature -40°C to 50°C</td>
               </tr>
               <tr>
                 <th class="product-table__tb">
                   warranty details
-                  <button class="js-close c-tooltip" type="button" data-tooltip="close">ー</button>
                 </th>
                 <td colspan="8">
                   The warranty period for this product is 10 years from the date of delivery, and if it is
@@ -1243,13 +1308,13 @@
       </div>
       <div class="product__complement l-wrapper u-mt-md">
         <section>
-          <h3 class="c-heading-lv2">CE EMC 2004/108/EC Certified</h3>
+          <h3 class="c-heading-lg">CE EMC 2004/108/EC Certified</h3>
           <p>European Electromagnetic Compatibility: Acquired certification that it does not affect wireless
             antennas</p>
         </section>
         <section class="product__complement u-mt-sm">
-          <h3 class="c-heading-lv2">Recognized as a Recommended Disaster Prevention Product in Japan</h3>
-          <div class="l-flex l-flex-al-start u-gap-2">
+          <h3 class="c-heading-lg">Recognized as a Recommended Disaster Prevention Product in Japan</h3>
+          <div class="l-flex l-flex--align-start u-gap-2">
             <img src="assets/img/img_complement-01.webp"
               alt="Recommended disaster prevention product certification mark in Japan" width="100" height="100"
               loading="lazy">
@@ -1263,7 +1328,7 @@
           <details>
             <summary>Scope of protection/Precautions for use</summary>
             <section class="u-px-sm u-mt-sm">
-              <h3 class="c-heading-lv3">Purpose of lightning protection equipment</h3>
+              <h3 class="c-heading-md">Purpose of lightning protection equipment</h3>
               <p>Safely spread lightning current to the ground when struck by lightning</p>
               <ol class="c-ol-list">
                 <li>Lightning current flows to the ground regardless of whether the top electrode or bottom
@@ -1285,7 +1350,7 @@
                 lightning current, so we aim to avoid it as much as possible.
               </p>
 
-              <h3 class="c-heading-lv3 u-mt-md">Protection range (lightning protection area)</h3>
+              <h3 class="c-heading-md u-mt-md">Protection range (lightning protection area)</h3>
               <p>Safely spread lightning current to the ground when struck by lightning</p>
               <img src="assets/img/img_complement-03.webp" alt="" width="800" height="240" class="u-mt-xs"
                 loading="lazy">
@@ -1309,8 +1374,8 @@
     </section>
 
     <section class="faq l-wrapper u-mt-2lg" id="faq">
-      <h2 class="c-heading-lv1">
-        <span class="c-heading-lv1__main">FAQ</span>
+      <h2 class="c-heading-section">
+        <span class="c-heading-section__main">FAQ</span>
       </h2>
       <div class="c-accordion u-mt-xs js-fade-up">
         <details>
@@ -1631,7 +1696,7 @@
       </div>
     </section>
 
-    <section class="main-cta u-mt-2lg" id="main-cta" data-fullBg>
+    <section class="main-cta u-mt-2lg" id="main-cta" data-full-bg>
       <div class="main-cta__content">
         <video class="js-cta-video l-abs-full" muted playsinline loop preload="none" aria-hidden="true" width="1520"
           height="458">
@@ -1650,8 +1715,8 @@
 
     <section class="contact u-mt-2lg" id="contact">
       <div class="l-wrapper">
-        <h2 class="c-heading-lv1">
-          <span class="c-heading-lv1__main">CONTACT</span>
+        <h2 class="c-heading-section">
+          <span class="c-heading-section__main">CONTACT</span>
         </h2>
         <p class="contact__comment js-fade-up">If you want to learn more about our wide range of products and
           ideas,
@@ -1787,7 +1852,8 @@
   <!-- 共通モーダルウィンドウ -->
   <dialog id="commonModal" class="c-modal" aria-modal="true" aria-label="Details">
     <div class="c-modal__content js-modal__content">
-      <button class="c-modal__close js-modal__close l-grid-center" type="button" aria-label="Close dialog">×</button>
+      <button class="c-modal__close js-modal__close l-grid l-grid--center" type="button"
+        aria-label="Close dialog">×</button>
       <div class="c-modal__body js-modal__body"></div>
     </div>
   </dialog>
@@ -1819,7 +1885,9 @@
   </script>
 
   <div class="float-cta" id="floatCta" aria-hidden="true">
-    <a class="float-cta__link" href="#main-cta">&#10004;&nbsp;Check the Partnership Program</a>
+    <a class="float-cta__link" href="#main-cta" tabindex="-1">
+      &#10004;&nbsp;Check the Partnership Program
+    </a>
   </div>
 
 </body>
