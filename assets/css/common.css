@@ -640,9 +640,8 @@ lite-youtube .lty-playbtn {
   border-radius: var(--radius-lg);
 }
 .c-modal__content::-webkit-scrollbar-thumb:vertical {
-  background-color: var(--color-l-gray);
-  border-radius: var(--radius-lg);
   background-color: rgb(var(--color-overlay-main) / 0.2);
+  border-radius: var(--radius-lg);
   background-clip: padding-box;
 }
 .c-modal__close {
