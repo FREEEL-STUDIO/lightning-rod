@@ -667,6 +667,7 @@ section {
 }
 .main-cta .c-button {
   width: fit-content;
+  background-image: linear-gradient(60deg, var(--color-main), var(--color-sub) 70%);
   font-size: var(--fs-60);
 }
 /*
