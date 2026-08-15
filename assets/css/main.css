@@ -154,7 +154,7 @@ section {
 }
 .hero__lead {
   margin-block-start: var(--space-sm);
-  font-size: var(--fs-slg);
+  font-size: var(--fs-90);
   font-weight: 500;
   color: var(--color-white);
 }
@@ -642,7 +642,12 @@ section {
   overflow: hidden;
 }
 .main-cta__title {
-  font-size: var(--fs-110);
+  font-size: var(--fs-120);
+  font-weight: 700;
+  color: var(--color-white);
+}
+.main-cta__title-sub {
+  font-size: var(--fs-slg);
   font-weight: 500;
   color: var(--color-white);
 }
@@ -661,7 +666,8 @@ section {
   z-index: var(--z-bg);
 }
 .main-cta .c-button {
-  width: var(--c-button-width);
+  width: fit-content;
+  font-size: var(--fs-60);
 }
 /*
     contact form

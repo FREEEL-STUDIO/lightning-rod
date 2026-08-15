@@ -384,7 +384,7 @@ lite-youtube .lty-playbtn {
   color: var(--color-white);
 }
 .c-button-cta {
-  --c-button-cta-width: min(98%, 1000px);
+  --c-button-cta-width: min(98%, 850px);
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -406,13 +406,12 @@ lite-youtube .lty-playbtn {
 }
 .c-button-cta__phrase-main {
   font-size: var(--fs-90);
-  font-weight: 500;
-  text-shadow: 0 0 4px var(--color-white);
+  font-weight: 600;
 }
-.c-button-cta__phrase-main > span {
-  display: block;
-  padding-inline-end: var(--space-sm);
-  font-size: var(--fs-base);
+.c-button-cta__phrase-sub {
+  font-size: var(--fs-md);
+  font-weight: 500;
+  opacity: var(--opacity-7);
 }
 .c-button-cta__image-decoration {
   max-width: clamp(40px, 8vw, 85px);
@@ -685,6 +684,12 @@ lite-youtube .lty-playbtn {
 :::::::::::::::::::::::::::::::::::::: */
 .u-fs-small {
   font-size: var(--fs-xs);
+}
+.u-fs-md {
+  font-size: var(--fs-md);
+}
+.u-fs-slg {
+  font-size: var(--fs-slg);
 }
 /*
    color
